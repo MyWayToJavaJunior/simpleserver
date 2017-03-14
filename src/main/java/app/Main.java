@@ -23,8 +23,8 @@ public class Main {
         resourceHandler.setDirectoriesListed(true);
         resourceHandler.setResourceBase("C:\\Users\\User\\WebPages\\GliderWebApp");
         servletContextHandler.addServlet(new ServletHolder(new StatusServlet()), "/status");
-        servletContextHandler.addServlet(new ServletHolder(new LogsServlet()), "/logs");
-        servletContextHandler.addServlet(new ServletHolder(new LogServlet()), "/log");
+        servletContextHandler.addServlet(new ServletHolder(new LogsServlet()), "/journals");
+        servletContextHandler.addServlet(new ServletHolder(new LogServlet()), "/journal");
 
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resourceHandler, servletContextHandler});
