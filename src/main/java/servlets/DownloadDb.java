@@ -17,10 +17,10 @@ public class DownloadDb extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("Download");
         PrintWriter out = response.getWriter();
-        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Anton\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
+        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\User\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
         response.setContentType("APPLICATION/OCTET-STREAM");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + "log1.txt" + "\"");
-        response.setContentLength((int) new File("C:\\Users\\Anton\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt").length());
+        response.setContentLength((int) new File("C:\\Users\\User\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt").length());
         int i;
         while ((i = fileInputStream.read()) != -1) {
             out.write(i);

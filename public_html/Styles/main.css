@@ -1,38 +1,42 @@
-
 @font-face {
     font-family: Source; /* Гарнитура шрифта */
     src: url(../Assets/source-code-pro.regular.ttf); /* Путь к файлу со шрифтом */
-   }
-*{
+}
+
+* {
     margin: 0;
     padding: 0;
     font-family: Source, verdana;
 }
 
-
 #main {
     width: 100vw;
     height: 100vh;
 }
+
 #leftPannel {
-	width: 145px;
+    width: 160px;
     height: 100%;
     background-color: gainsboro;
     float: left;
     padding-top: 80px;
     padding-left: 20px;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    position: absolute;
+    z-index: 2;
 }
-ul{
+
+ul {
     list-style: none;
 }
+
 #app-header {
-	margin-top: 0px;
+    margin-top: 0px;
     margin-left: 140px;
 }
 
 .content-header {
-    color: gray;    
+    color: gray;
 }
 
 #rightPannel {
@@ -40,44 +44,79 @@ ul{
     height: 100%;
     padding-top: 20px;
     padding-left: 20px;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
 }
+
 .content {
-    margin-left: 145px;
+    margin-left: 160px;
 }
 
 .content-element {
-   
-	width: 390px;
+
+    width: 390px;
     float: left;
 }
-label{
+
+label {
     display: inline-block;
     margin-left: 10px;
 }
-.value{
+
+.value {
     color: cornflowerblue;
 }
+
 #battery-bar {
     float: right;
-	width: 200px;
+    width: 200px;
     height: 20px;
     margin-right: 40px;
 }
-#log{
+
+#log {
     width: 300px;
     height: 200px;
-   
+
 }
+
 #mapid {
-	width: 250px;
+    width: 250px;
     height: 250px;
 }
+
 #log-text-area {
     width: 250px;
     height: 200px;
     overflow-y: auto;
 }
-#log-links a{
-	display: inline-block;
+
+#log-links a {
+    display: inline-block;
     margin-right: 5px;
 }
+
+/* Portrait and Landscape */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3) {
+
+    #leftPannel {
+        width: 140px;
+        height: 100%;
+        background-color: gainsboro;
+        float: left;
+        padding-top: 80px;
+        padding-left: 10px;
+        font-size: 1.2em;
+        position: absolute;
+        z-index: 2;
+    }
+
+}
+
+

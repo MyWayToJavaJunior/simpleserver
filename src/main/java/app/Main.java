@@ -19,7 +19,7 @@ public class Main {
         ServletContextHandler servletContextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setDirectoriesListed(true);
-        resourceHandler.setResourceBase("C:\\Users\\Anton\\IdeaProjects\\simpleserver\\public_html");
+        resourceHandler.setResourceBase("C:\\Users\\User\\IdeaProjects\\simpleserver\\public_html");
         servletContextHandler.addServlet(new ServletHolder(new StatusServlet()), "/status");
         servletContextHandler.addServlet(new ServletHolder(new LogsServlet()), "/journals");
         servletContextHandler.addServlet(new ServletHolder(new LogServlet()), "/journal");

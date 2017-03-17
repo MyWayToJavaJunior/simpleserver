@@ -35,7 +35,7 @@ public class LogServlet extends HttpServlet {
         List<String> journal;
 
         Log() throws IOException {
-            Path file = Paths.get("C:\\Users\\Anton\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
+            Path file = Paths.get("C:\\Users\\User\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
             journal = Files.readAllLines(file);
         }
 
