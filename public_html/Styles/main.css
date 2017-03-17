@@ -98,25 +98,45 @@ label {
     display: inline-block;
     margin-right: 5px;
 }
+#menu-btn {
+    display: none;
+}
 
 /* Portrait and Landscape */
 @media screen
-and (device-width: 360px)
-and (device-height: 640px)
+and (device-width: 414px)
+and (device-height: 736px)
 and (-webkit-device-pixel-ratio: 3) {
+    #menu-btn{
+        display: block;
+    }
 
     #leftPannel {
-        width: 140px;
+        width: 200px;
+        display: none;
         height: 100%;
         background-color: gainsboro;
         float: left;
         padding-top: 80px;
         padding-left: 10px;
-        font-size: 1.2em;
+        font-size: 1.4em;
         position: absolute;
         z-index: 2;
     }
 
+    #app-header {
+        margin-left: 50px;
+    }
+
+    .content-element {
+        width: auto;
+    }
+
+    .content {
+        margin-left: 0px;
+    }
 }
+
+
 
 

@@ -4,7 +4,7 @@
 <head>
     <title>Glider Web App</title>
     <meta charset="UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="Styles/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
@@ -19,7 +19,26 @@
 </head>
 
 <body>
+<!--<div class="dropdown">
+    <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        Dropdown
+
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Действие</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Другое действие</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Что-то еще</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Отдельная ссылка</a></li>
+    </ul>
+</div>-->
+
 <div id="main">
+    <button id="menu-btn" type="button" class="btn btn-default btn-lg"
+            style="width: 40px; height: 40px; padding: 0px;
+            font-size: 30px; color: dimgray;position: fixed; left: 10px;top: 10px; border-style: none;z-index: 20">
+        <span class="glyphicon glyphicon-th-list"></span>
+    </button>
     <div id="leftPannel">
         <ul>
             <li data-elem="status"><input type="checkbox" checked>Status</li>
@@ -54,12 +73,12 @@
                     </div>
                 </div>
                 <div>
-                    <label>Presure</label>
+                    <label>Pressure</label>
                     <label class="value" id="presure-lable">1200</label>
                     <label class="value" style="margin-left:-5px">kPa</label>
                 </div>
                 <div>
-                    <label>Hummidity</label>
+                    <label>Humidity</label>
                     <label class="value" id="hummidity-lable">75</label>
                     <label class="value" style="margin-left:0px">%</label>
                 </div>
@@ -128,15 +147,16 @@
                 <div>
                     <label>Sessions</label>
                     <label class="value" id="sessions">3</label>
-                    
+
                 </div>
-                <button type="button" class="btn btn-default" id="dowload_db" href="/download_db/log1.txt download">Download</button>
+                <a class="btn btn-default" id="dowload_db" href="/download_database" download>Download</a>
 
 
             </div>
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

@@ -26,7 +26,7 @@ public class Main {
         servletContextHandler.addServlet(new ServletHolder(new GpsServlet()), "/gps");
         servletContextHandler.addServlet(new ServletHolder(new HelmServlet()), "/helm");
         servletContextHandler.addServlet(new ServletHolder(new DataBaseServlet()), "/database");
-        servletContextHandler.addServlet(new ServletHolder(new DownloadDb()), "/download_db");
+        servletContextHandler.addServlet(new ServletHolder(new DownloadDb()), "/download_database");
 
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resourceHandler, servletContextHandler});

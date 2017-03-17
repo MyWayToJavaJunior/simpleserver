@@ -21,7 +21,15 @@ $(function(){
         }
         console.log(elemId);
         console.log($(this).find("input").attr("checked"))
-    })
+    });
+
+    $("#menu-btn").click(function (e) {
+        if ($("#leftPannel").css("display")==="none"){
+            $("#leftPannel").css("display", "block");
+        } else {
+            $("#leftPannel").css("display", "none");
+        }
+    });
     
     let map = initMap();
 
