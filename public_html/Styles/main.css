@@ -66,8 +66,18 @@ label{
 #log{
     width: 300px;
     height: 200px;
-    border-color: grey;
-    border-style: solid;
-    border-width: 1px;
+   
 }
-
+#mapid {
+	width: 250px;
+    height: 250px;
+}
+#log-text-area {
+    width: 250px;
+    height: 200px;
+    overflow-y: auto;
+}
+#log-links a{
+	display: inline-block;
+    margin-right: 5px;
+}

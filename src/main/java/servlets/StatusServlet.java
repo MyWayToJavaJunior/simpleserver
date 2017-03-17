@@ -18,7 +18,6 @@ public class StatusServlet extends HttpServlet{
 
         String result = mapper.writeValueAsString(new Status());
 
-        System.out.println(result);
 
         response.getOutputStream().write(result.getBytes());
 

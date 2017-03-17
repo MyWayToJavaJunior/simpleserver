@@ -6,21 +6,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
- * Created by User on 14.03.2017.
+ * Created by Anton on 16.03.2017.
  */
-public class LogsServlet extends HttpServlet {
+public class DataBaseServlet extends HttpServlet {
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        String result = mapper.writeValueAsString(new Logs());
+        String result = mapper.writeValueAsString(new DB());
 
-        System.out.println(result);
 
         response.getOutputStream().write(result.getBytes());
 
@@ -30,19 +27,28 @@ public class LogsServlet extends HttpServlet {
 
     }
 
-    static class Logs{
-        List<String> journals;
-        Logs(){
-            journals = new ArrayList<>();
-            journals.addAll(Arrays.asList("Log1", "Log2", "Log3"));
+    static class DB{
+        float size;
+        int sessions;
+        DB(){
+            this.sessions = 3;
+            this.size = 123;
         }
 
-        public List<String> getJournals() {
-            return journals;
+        public float getSize() {
+            return size;
         }
 
-        public void setJournals(List<String> journals) {
-            this.journals = journals;
+        public void setSize(float size) {
+            this.size = size;
+        }
+
+        public int getSessions() {
+            return sessions;
+        }
+
+        public void setSessions(int sessions) {
+            this.sessions = sessions;
         }
     }
 }

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,19 +32,19 @@ public class LogServlet extends HttpServlet {
     }
 
     static class Log{
-        List<String> strings;
+        List<String> journal;
 
         Log() throws IOException {
-            Path file = Paths.get("C:\\Users\\User\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
-            strings = Files.readAllLines(file);
+            Path file = Paths.get("C:\\Users\\Anton\\IdeaProjects\\simpleserver\\src\\main\\resources\\log1.txt");
+            journal = Files.readAllLines(file);
         }
 
-        public List<String> getStrings() {
-            return strings;
+        public List<String> getJournal() {
+            return journal;
         }
 
-        public void setStrings(List<String> strings) {
-            this.strings = strings;
+        public void setJournal(List<String> journal) {
+            this.journal = journal;
         }
     }
 }

@@ -6,22 +6,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
- * Created by User on 14.03.2017.
+ * Created by Anton on 16.03.2017.
  */
-public class LogsServlet extends HttpServlet {
+public class GpsServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         ObjectMapper mapper = new ObjectMapper();
 
-        String result = mapper.writeValueAsString(new Logs());
-
-        System.out.println(result);
-
+        String result = mapper.writeValueAsString(new Coords());
         response.getOutputStream().write(result.getBytes());
 
         response.setContentType("application/json; charset=UTF-8");
@@ -30,19 +23,28 @@ public class LogsServlet extends HttpServlet {
 
     }
 
-    static class Logs{
-        List<String> journals;
-        Logs(){
-            journals = new ArrayList<>();
-            journals.addAll(Arrays.asList("Log1", "Log2", "Log3"));
+    static class Coords{
+        double lat;
+        double lon;
+        Coords(){
+            lat = 59.934582299999995;
+            lon = 30.299728700000003;
         }
 
-        public List<String> getJournals() {
-            return journals;
+        public double getLat() {
+            return lat;
         }
 
-        public void setJournals(List<String> journals) {
-            this.journals = journals;
+        public void setLat(double lat) {
+            this.lat = lat;
+        }
+
+        public double getLon() {
+            return lon;
+        }
+
+        public void setLon(double lon) {
+            this.lon = lon;
         }
     }
 }

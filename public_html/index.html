@@ -1,111 +1,141 @@
 <!doctype html>
 
 <html>
-	<head>
-		<title>Glider Web App</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0">
-        <link type="text/css" href="Styles/main.css" rel="stylesheet">
-        <script src="http://use.edgefonts.net/source-code-pro:n9,n7,n2,n3,n4,n6,n5,i9,i7,i2,i4,i3,i5,i6:all.js"></script>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="Script/main.js"></script>
-	</head>
+<head>
+    <title>Glider Web App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link type="text/css" href="Styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="Script/controllers.js"></script>
+    <script src="Script/map.js"></script>
+    <script src="http://use.edgefonts.net/source-code-pro:n9,n7,n2,n3,n4,n6,n5,i9,i7,i2,i4,i3,i5,i6:all.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Script/main.js"></script>
+</head>
 
-	<body>
-        <div id="main">
-            <div id="leftPannel">
-                <ul>
-                    <li data-elem="status"><input type="checkbox" checked>Status</li>
-                    <li data-elem="managment"><input type="checkbox" checked>Managment</li>
-                    <li data-elem="logs"><input type="checkbox" checked>Logs</li>
-                    <li data-elem="gps"><input type="checkbox" checked>GPS</li>
-                    <li data-elem="db"><input type="checkbox" checked>Data Base</li>
-                </ul>
-            </div>
-            <div id="rightPannel">
-                <h2 id="app-header">Glider Web App</h2>
-                <div class="content">
-                    <div class="content-element" id="status">
-                        <h3 class="content-header">Glider status</h3>
-                        <div><label>Voltage</label><label class="value">12V</label></div>
-                        <div><label>Amperage</label><label class="value">3A</label></div>
-                        <div>
-                            <label>Battery charge</label>
-                                <div class="progress" id="battery-bar">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                70%
-                                </div>
-                            </div>
+<body>
+<div id="main">
+    <div id="leftPannel">
+        <ul>
+            <li data-elem="status"><input type="checkbox" checked>Status</li>
+            <li data-elem="managment"><input type="checkbox" checked>Managment</li>
+            <li data-elem="journals"><input type="checkbox" checked>Logs</li>
+            <li data-elem="gps"><input type="checkbox" checked>GPS</li>
+            <li data-elem="db"><input type="checkbox" checked>Data Base</li>
+        </ul>
+    </div>
+    <div id="rightPannel">
+        <h2 id="app-header">Glider Web App</h2>
+        <div class="content">
+            <div class="content-element" id="status">
+                <h3 class="content-header">Glider status</h3>
+                <div>
+                    <label>Voltage</label>
+                    <label class="value" id="voltage-label">12</label>
+                    <label class="value" style="margin-left:0px">V</label>
+                </div>
+                <div>
+                    <label>Amperage</label>
+                    <label class="value" id="amperage-lable">3</label>
+                    <label class="value" style="margin-left:0px">A</label>
+                </div>
+                <div>
+                    <label>Battery charge</label>
+                    <div class="progress" id="battery-bar">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                             aria-valuemax="100" style="width:70%">
+                            70%
                         </div>
-                        <div>
-                            <label>Presure</label>
-                            <label class="value">1200kPa</label>
-                        </div>
-                        <div>
-                            <label>Hummidity</label>
-                            <label class="value">75%</label>
-                        </div>
-                        <div>
-                            <label>CPU Temp</label>
-                            <label class="value">25 C</label>
-                        </div>
-                        <div>
-                            <label>Inside Temp</label>
-                            <label class="value">10 C</label>
-                        </div>
-                        
                     </div>
                 </div>
-                
-                <div class="content">
-                    <div class="content-element" id="managment">
-                        <h3 class="content-header">Mission Managment</h3>
-                        <div><label>Mission Type</label><label class="value">Some Type</label></div>
-                        <div><label>Mission Name</label><label class="value">Some Name</label></div>                      
-                        <div>
-                            <label>Mission time</label>
-                            <label class="value">12:19</label>
-                        </div>
-                        <div>
-                            <label>Hummidity</label>
-                            <label class="value">75%</label>
-                        </div>
-                        
-                    </div>
+                <div>
+                    <label>Presure</label>
+                    <label class="value" id="presure-lable">1200</label>
+                    <label class="value" style="margin-left:-5px">kPa</label>
                 </div>
-                <div class="content">
-                    <div class="content-element" id="logs">
-                        <h3 class="content-header">Glider Logs</h3>
-                        <div id="log">
-                            <span>Glider says: I am Hungry</span><br/>
-                            <span>Glider says: WTF</span>
-                        </div>
-                        
-                    </div>
+                <div>
+                    <label>Hummidity</label>
+                    <label class="value" id="hummidity-lable">75</label>
+                    <label class="value" style="margin-left:0px">%</label>
                 </div>
-                 <div class="content">
-                    <div class="content-element" id="gps">
-                        <h3 class="content-header">GPS Position</h3>
-                        <div><label>Lat</label><label class="value">192.22.33</label></div>
-                        <div><label>Lon</label><label class="value">22.33.44</label></div>                      
-                        
-                        
-                    </div>
+                <div>
+                    <label>CPU Temp</label>
+                    <label class="value" id="cputemp-lable">25</label>
+                    <label class="value" style="margin-left:0px">C</label>
                 </div>
-                <div class="content">
-                    <div class="content-element" id="db">
-                        <h3 class="content-header">Data Base</h3>
-                        <div><label>Size</label><label class="value">19 Mb</label></div>
-                        <div><label>Sessions</label><label class="value">3</label></div>
-                        <button type="button" class="btn btn-default">Download</button>
-                        
-                        
-                    </div>
+                <div>
+                    <label>Inside Temp</label>
+                    <label class="value" id="insidetemp-lable">10</label>
+                    <label class="value" style="margin-left:0px">C</label>
                 </div>
+
             </div>
         </div>
 
-	</body>
+        <div class="content">
+            <div class="content-element" id="helm">
+                <h3 class="content-header">Mission Managment</h3>
+                <div>
+                    <label>Helm satate</label>
+                    <label class="value" id="helm_state">Some Type</label>
+                </div>
+                <div>
+                    <label>Helm mode type</label>
+                    <label class="value" id="helm_mode_type">Some Name</label>
+                </div>
+                <div>
+                    <label>Helm mode name</label>
+                    <label class="value" id="helm_mode_name">12:19</label>
+                </div>
+                <div>
+                    <label>Helm mode time</label>
+                    <label class="value" id="helm_mode_time">75%</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-element" id="journals">
+                <h3 class="content-header">Glider Logs</h3>
+                <div id="log-links"></div>
+                <div id="log-text-area"></div>
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-element" id="gps">
+                <h3 class="content-header">GPS Position</h3>
+                <div><label>Lat</label><label class="value" id="latElem">192.22.33</label></div>
+                <div><label>Lon</label><label class="value" id="lonElem">22.33.44</label></div>
+                <div id="mapid"></div>
+
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-element" id="db">
+                <h3 class="content-header">Data Base</h3>
+                <div>
+                    <label>Size</label>
+                    <label class="value" id="size">19</label>
+                    <label class="value" style="margin-left:0px">Mb</label>
+                </div>
+                <div>
+                    <label>Sessions</label>
+                    <label class="value" id="sessions">3</label>
+                    
+                </div>
+                <button type="button" class="btn btn-default" id="dowload_db" href="/download_db/log1.txt download">Download</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
