@@ -104,8 +104,8 @@ label {
 
 /* Portrait and Landscape */
 @media screen
-and (device-width: 414px)
-and (device-height: 736px)
+and (max-device-width: 414px)
+and (max-device-height: 736px)
 and (-webkit-device-pixel-ratio: 3) {
     #menu-btn{
         display: block;
