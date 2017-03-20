@@ -56,8 +56,7 @@ ul {
 }
 
 .content-element {
-
-    width: 390px;
+    width: 380px;
     float: left;
 }
 
@@ -89,8 +88,10 @@ label {
 }
 
 #log-text-area {
-    width: 250px;
-    height: 200px;
+    /*display: none;*/
+    /*border: 1px solid black;*/
+    width: 400px;
+    height: 400px;
     overflow-y: auto;
 }
 
@@ -102,6 +103,18 @@ label {
     display: none;
 }
 
+#log-links a{
+    display: block;
+}
+
+.ui-dialog{
+    background-color: white;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.ui-dialog-titlebar{
+    background-color: cornflowerblue;
+}
 /* Portrait and Landscape */
 @media screen
 and (max-device-width: 414px)
@@ -109,6 +122,10 @@ and (max-device-height: 736px)
 and (-webkit-device-pixel-ratio: 3) {
     #menu-btn{
         display: block;
+    }
+
+    #battery-bar{
+        float: none;
     }
 
     #leftPannel {
@@ -129,7 +146,7 @@ and (-webkit-device-pixel-ratio: 3) {
     }
 
     .content-element {
-        width: auto;
+        width: 360px;
     }
 
     .content {

@@ -46,6 +46,16 @@ class LogsController {
         let self = this;
 
         this.logTextArea = $("#log-text-area");
+        this.dialogBox = this.logTextArea.dialog({
+            modal: true,
+            buttons : {
+                Ok: function(){
+                    $(this).dialog("close");
+                }
+            },
+            autoOpen: false
+        });
+
         this.elem = $("#log-links");
         this.elem.html("");
         $.get("/journals", function (data) {
@@ -65,18 +75,13 @@ class LogsController {
             return false;
         });
 
-
-
-        //console.log(LogsController.prototype)
-    }
-
-    updateLogs() {
-
     }
 
     showLog(logPath) {
         let that = this;
         $.get(logPath, function (data) {
+            that.logTextArea.html("");
+            that.dialogBox.dialog("open");
             let logs = data["journal"];
             for (let l in logs) {
                 that.logTextArea.append($("<div class='log-item'>" + logs[l] + "</div>"));
@@ -85,21 +90,21 @@ class LogsController {
     }
 }
 
-class HelmController{
-    constructor(){
+class HelmController {
+    constructor() {
         let self = this;
         $.get("/helm", function (data) {
-            for (let d in data){
-                let elem = $("#"+d).text(data[d]);
+            for (let d in data) {
+                let elem = $("#" + d).text(data[d]);
             }
         })
     }
 }
-class DataBase{
-    constructor(){
+class DataBase {
+    constructor() {
         $.get("/database", function (data) {
-            for (let d in data){
-                let elem = $("#"+d).text(data[d]);
+            for (let d in data) {
+                let elem = $("#" + d).text(data[d]);
             }
         });
 
